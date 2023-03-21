@@ -879,10 +879,10 @@
     	    console.log("#modalLarge 모달이 보여지기전에 ajax 호출");
     	 	$(e.target).find('.modal-title').html("짱좋은 원피스[ajax receive data]");
  	    	$(e.target).find('.modal-body p').html("짱좋은 원피스 상세정보[ajax receive data]");
+ 	    	$(e.target).find('.modal-body p').append(`<img src="https://i0.wp.com/sharehows.com/wp-content/uploads/2015/12/one-piece-leadership-00.jpg?fit=800%2C400&ssl=1"> `)
     	});
     	$('#modalLarge').on('shown.bs.modal',function(e){
     	    console.log("#modalLarge 모달이 보여진후에 호출");
-    	   
     	});
     	$('#modalLarge').on('hide.bs.modal',function(e){
     		console.log("#modalLarge 모달이 사라지기직전에 호출");
@@ -890,7 +890,9 @@
     	$('#modalLarge').on('hidden.bs.modal',function(e){
     	 	console.log("#modalLarge 모달이 사라진후에 호출");
     	});
-   		
+        $('#modalXL').on('show.bs.modal',function(e){
+          $(e.target).find('.modal-title').html("타이틀변경");
+        });
    		
     </script>
   </body>

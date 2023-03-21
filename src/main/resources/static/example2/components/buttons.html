@@ -630,9 +630,9 @@
             </div>
             <h6 class="text-muted text-normal text-uppercase padding-top-2x">Button Dropdowns</h6>
             <hr class="margin-bottom-1x">
-            <div class="btn-group">
+            <div id = "dropDown1" class="btn-group">
               <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Primary</button>
-              <div class="dropdown-menu"><a class="dropdown-item" href="#">Action</a><a class="dropdown-item" href="#">Another Action</a><a class="dropdown-item" href="#">Something else here</a>
+                <div class="dropdown-menu"><a class="dropdown-item" href="#">Action</a><a class="dropdown-item" href="#">Another Action</a><a class="dropdown-item" href="#">Something else here</a><a class="dropdown-item">hi hello</a>
                 <div class="dropdown-divider"></div><a class="dropdown-item" href="#">Separated link</a>
               </div>
             </div>
@@ -830,6 +830,23 @@
     	   alert($(e.target).text()+" click....");
     	   e.preventDefault();
     	});
+
+        $('#dropDown1').on('show.bs.dropdown',function (e){
+            console.log(e.target);
+            console.log(e.relatedTarget);
+            let data = [`분당`,`시흥`,`평촌`,`평택`]
+            $(e.target).find('.dropdown-menu').html("");
+            $.each(data,function (i,element){
+                $(e.target).find('.dropdown-menu').append(`<a class="dropdown-item" href="#">${element}</a>`);
+            });
+
+        $(e.target).find('.dropdown-item').on('click',function (){
+            console.log("ajax request-->"+$(e.target).text());
+
+        });
+
+        });
+
     </script>
   </body>
 </html>

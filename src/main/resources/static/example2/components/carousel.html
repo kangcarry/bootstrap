@@ -704,5 +704,59 @@
     <!-- JavaScript (jQuery) libraries, plugins and custom scripts-->
     <script src="../js/vendor.min.js"></script>
     <script src="../js/scripts.min.js"></script>
+    <script>
+        console.log($('.owl-carousel').length);
+        /*
+           "items": 1 How many items to display
+           "nav": true/false Enable/disable control arrows
+           "dots": true/false Enable/disable dots control
+           "loop": true/false Enable/disable infinite loop
+           "autoplay": true/false Enable/disable automatic slides transition
+           "autoplayTimeout": 3000 Timeou between transition. Value in ms | 1000ms = 1s
+           "margin": 30 Space between carousel items (in px)
+           "autoHeight": true/false Enable/disable smooth height transition. If items have different height
+           "responsive": {"0": {"items": 1}, "768": {"items": 2}, ...} How many items to display on each screen size
+         */
+        $('.owl-carousel').owlCarousel({
+            items:2,
+            margin:10,
+            autoplay:true,
+            dots:true,
+            loop:false,
+            nav:true,
+            animateOut:'sildeUp',
+            animateIn:'fadeIn',
+            autoplayTimeout:500
+        });
+        $('.owl-carousel').on('dragged.owl.carousel',function (e){
+            console.log("11111111111."+e.target);
+            console.log(e.relatedTarget);
+            console.log(e.item);
+            console.log(e.item.count);
+            console.log(e.item.index);
+            console.log(e.page.count);
+            console.log(e.page.index);
+            let ajaxData=`
+                <img src="https://s.pstatic.net/shopping.phinf/20230321_7/e0b076c9-d439-4eaf-ad13-91c67d794c41.jpg?type=f214_292" alt="Image">
+                <img src="https://s.pstatic.net/shopping.phinf/20230321_7/e0b076c9-d439-4eaf-ad13-91c67d794c41.jpg?type=f214_292" alt="Image">
+                <img src="https://s.pstatic.net/shopping.phinf/20230321_7/e0b076c9-d439-4eaf-ad13-91c67d794c41.jpg?type=f214_292" alt="Image">
+         `;
+            $(e.target).html(ajaxData);
+
+            $('.owl-carousel').owlCarousel({
+                items:2,
+                margin:10,
+                autoplay:true,
+                dots:true,
+                loop:false,
+                nav:true,
+                animateOut:'sildeUp',
+                animateIn:'fadeIn',
+                autoplayTimeout:500
+            });
+
+        });
+
+    </script>
   </body>
 </html>
